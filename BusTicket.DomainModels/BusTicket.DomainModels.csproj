@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\CreateTables.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Color.cs" />
