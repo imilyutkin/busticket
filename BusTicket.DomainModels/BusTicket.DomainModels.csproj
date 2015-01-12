@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarModel.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\Route.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
