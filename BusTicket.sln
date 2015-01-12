@@ -10,7 +10,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{5EB5EC
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket.Web", "BusTicket.Web\BusTicket.Web.csproj", "{A354662F-FFC9-4956-AB2D-8CC0DD6722A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusTicket.DomainModels", "BusTicket.DomainModels\BusTicket.DomainModels.csproj", "{7B4F5058-AAF9-4D8C-B9DC-B4E7B0956D13}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A354662F-FFC9-4956-AB2D-8CC0DD6722A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A354662F-FFC9-4956-AB2D-8CC0DD6722A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A354662F-FFC9-4956-AB2D-8CC0DD6722A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A354662F-FFC9-4956-AB2D-8CC0DD6722A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B4F5058-AAF9-4D8C-B9DC-B4E7B0956D13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B4F5058-AAF9-4D8C-B9DC-B4E7B0956D13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B4F5058-AAF9-4D8C-B9DC-B4E7B0956D13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B4F5058-AAF9-4D8C-B9DC-B4E7B0956D13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
