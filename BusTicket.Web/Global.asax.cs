@@ -10,6 +10,8 @@ namespace BusTicket.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            DatabaseMigration.Start();
         }
     }
 }

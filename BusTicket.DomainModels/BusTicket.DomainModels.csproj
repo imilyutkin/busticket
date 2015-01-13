@@ -38,6 +38,9 @@
     <Reference Include="FluentMigrator">
       <HintPath>..\packages\FluentMigrator.1.4.0.0\lib\40\FluentMigrator.dll</HintPath>
     </Reference>
+    <Reference Include="FluentMigrator.Runner">
+      <HintPath>..\packages\FluentMigrator.Runner.1.4.0.0\lib\40\FluentMigrator.Runner.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\CreateTables.cs" />
+    <Compile Include="Migrations\CreateTablesMigration.cs" />
+    <Compile Include="Migrations\MigrationOptions.cs" />
+    <Compile Include="Migrations\Migrator.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\Color.cs" />

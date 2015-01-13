@@ -1,21 +1,20 @@
-﻿using System;
-using FluentMigrator;
+﻿using FluentMigrator;
 
 namespace BusTicket.DomainModels.Migrations
 {
     [Migration(1)]
-    public class CreateTables : Migration
+    public class CreateTablesMigration : Migration
     {
         public override void Up()
         {
             Create.Table("Colors")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Title").AsString().NotNullable().Unique().Indexed()
+                .WithColumn("Title").AsString().NotNullable().Unique()
                 .WithColumn("Picture").AsString().NotNullable();
 
             Create.Table("CarModels")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Title").AsString().NotNullable().Unique().Indexed()
+                .WithColumn("Title").AsString().NotNullable().Unique()
                 .WithColumn("Picture").AsString().NotNullable();
 
             Create.Table("Cars")
@@ -33,9 +32,9 @@ namespace BusTicket.DomainModels.Migrations
 
             Create.Table("Vehicles")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
-                .WithColumn("Route_Id").AsInt32().ForeignKey().NotNullable()
+                .WithColumn("Route_Id").AsInt32().ForeignKey().NotNullable().ForeignKey("Routes", "Id")
                 .WithColumn("TimeOfDeparture").AsDateTime().NotNullable()
-                .WithColumn("Car_Id").AsInt32().NotNullable();
+                .WithColumn("Car_Id").AsInt32().NotNullable().ForeignKey("Cars", "Id");
         }
 
         public override void Down()
