@@ -10,7 +10,7 @@ namespace BusTicket.Web
         {
             var connectionString = GetConnectionString(GetCurrentConnectionStringName());
 
-            var migrator = new Migrator(connectionString, "sqlserver");
+            var migrator = new Server2012Migrator(connectionString, "sqlserver");
             migrator.Migrate(runner => runner.MigrateDown(1));
             migrator.Migrate(runner => runner.MigrateUp(1));
         }

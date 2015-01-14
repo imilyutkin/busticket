@@ -10,12 +10,12 @@ namespace BusTicket.DomainModels.Migrations
             Create.Table("Colors")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Title").AsString().NotNullable().Unique()
-                .WithColumn("Picture").AsString();
+                .WithColumn("Picture").AsString().Nullable();
 
             Create.Table("CarModels")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Title").AsString().NotNullable().Unique()
-                .WithColumn("Picture").AsString();
+                .WithColumn("Picture").AsString().Nullable();
 
             Create.Table("Cars")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
