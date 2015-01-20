@@ -5,4 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>title</h2>
+
+@foreach (var color in Model)
+{
+    <a href="@color.Picture"><h2>@color.Title</h2></a>
+}
+

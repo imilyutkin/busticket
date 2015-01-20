@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=1.38.0.0, Culture=neutral, PublicKeyToken=e3e8412083d25dd3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Dapper.StrongName.1.38\lib\net45\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="FluentMigrator.Runner, Version=1.4.0.0, Culture=neutral, PublicKeyToken=aacfc7de5acabf05, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FluentMigrator.Runner.1.4.0.0\lib\40\FluentMigrator.Runner.dll</HintPath>
