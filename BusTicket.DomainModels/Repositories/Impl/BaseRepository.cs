@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Reflection;
 using BusTicket.DomainModels.Models;
 using BusTicket.DomainModels.Repositories.Attributes;
@@ -28,6 +29,24 @@ namespace BusTicket.DomainModels.Repositories.Impl
             }
         }
 
+        private Type currentEntityType;
+
+        protected Type CurrentEntityType
+        {
+            get
+            {
+                return currentEntityType = currentEntityType ?? typeof (TEntity);
+            }
+        }
+        
+        protected String CurrentTableName
+        {
+            get
+            {
+                return Configurations[CurrentEntityType].TableName;
+            }
+        }
+
         public SqlConnection Connection
         {
             get;
@@ -42,7 +61,8 @@ namespace BusTicket.DomainModels.Repositories.Impl
 
         protected BaseRepository()
         {
-            Connection = new SqlConnection(connectionString);
+            Connection = new SqlConnection(ConnectionString);
+            Configurations = new Dictionary<Type, EntityConfiguration>();
             if (!Configurations.ContainsKey(typeof(TEntity)))
             {
                 var type = typeof (TEntity);
@@ -55,28 +75,32 @@ namespace BusTicket.DomainModels.Repositories.Impl
 
         public TEntity GetById(int id)
         {
-//            return Connection.Query<TEntity>("SELECT * FROM {0} WHERE Id = @Id", new {Id = id});
-            throw new System.NotImplementedException();
+            return Connection.Query<TEntity>(String.Format("SELECT * FROM {0} WHERE Id = @Id", CurrentTableName), new {Id = id}).SingleOrDefault();
         }
 
         public TEntity Save(TEntity entity)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public TEntity Update(TEntity entity)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void DeletById(int id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public void Delete(TEntity entity)
         {
             DeletById(entity.Id);
+        }
+
+        public IEnumerable<TEntity> GetAll()
+        {
+            return Connection.Query<TEntity>(String.Format("SELECT * FROM {0}", CurrentTableName));
         }
     }
 }

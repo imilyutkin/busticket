@@ -1,4 +1,6 @@
-﻿using BusTicket.DomainModels.Models;
+﻿using System.Collections;
+using System.Collections.Generic;
+using BusTicket.DomainModels.Models;
 
 namespace BusTicket.DomainModels.Repositories.Contract
 {
@@ -13,5 +15,7 @@ namespace BusTicket.DomainModels.Repositories.Contract
         void DeletById(int id);
 
         void Delete(TEntity entity);
+
+        IEnumerable<TEntity> GetAll();
     }
 }

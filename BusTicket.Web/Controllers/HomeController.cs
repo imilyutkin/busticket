@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Web.Mvc;
-using BusTicket.DomainModels.Models;
-using Dapper;
+﻿using System.Web.Mvc;
+using BusTicket.DomainModels.Repositories.Impl;
 
 namespace BusTicket.Web.Controllers
 {
@@ -14,7 +8,9 @@ namespace BusTicket.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var repository = new ColorRepository();
+            var colors = repository.GetAll();
+            return View(colors);
         }
     }
 }
