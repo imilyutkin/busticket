@@ -42,6 +42,7 @@
       <HintPath>..\packages\FluentMigrator.Runner.1.4.0.0\lib\40\FluentMigrator.Runner.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\TableConstants.cs" />
     <Compile Include="Migrations\CreateTablesMigration.cs" />
     <Compile Include="Migrations\MigrationOptions.cs" />
     <Compile Include="Migrations\Migrator.cs" />
@@ -61,6 +63,8 @@
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Contract\IBaseRepository.cs" />
+    <Compile Include="Repositories\Impl\BaseRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

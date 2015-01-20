@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,12 +14,7 @@ namespace BusTicket.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            var connectionString =
-                ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["DBConnectionStringName"]]
-                    .ConnectionString;
-            SqlConnection connection = new SqlConnection(connectionString);
-            var res = connection.Query<Color>("Select * FROM Colors", new {Title = "black"});
-            return View(res);
+            return View();
         }
     }
 }

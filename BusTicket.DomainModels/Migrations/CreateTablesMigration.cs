@@ -1,4 +1,5 @@
-﻿using FluentMigrator;
+﻿using BusTicket.DomainModels.Constants;
+using FluentMigrator;
 
 namespace BusTicket.DomainModels.Migrations
 {
@@ -7,30 +8,30 @@ namespace BusTicket.DomainModels.Migrations
     {
         public override void Up()
         {
-            Create.Table("Colors")
+            Create.Table(TableConstants.ColorsTableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Title").AsString().NotNullable().Unique()
                 .WithColumn("Picture").AsString().Nullable();
 
-            Create.Table("CarModels")
+            Create.Table(TableConstants.CarModelsTableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Title").AsString().NotNullable().Unique()
                 .WithColumn("Picture").AsString().Nullable();
 
-            Create.Table("Cars")
+            Create.Table(TableConstants.CarsTableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Number").AsString().NotNullable().Unique()
                 .WithColumn("Color_Id").AsInt32().NotNullable().ForeignKey("Colors","Id")
                 .WithColumn("Picture").AsString().NotNullable()
                 .WithColumn("CarModel").AsInt32().NotNullable().ForeignKey("CarModels", "Id")
                 .WithColumn("QuantityOfPassenger").AsInt32().NotNullable().WithDefaultValue(0);
-            
-            Create.Table("Routes")
+
+            Create.Table(TableConstants.RoutesTableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("StartPoint").AsString().NotNullable()
                 .WithColumn("DestinationPoint").AsString().NotNullable();
 
-            Create.Table("Vehicles")
+            Create.Table(TableConstants.VehiclesTableName)
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
                 .WithColumn("Route_Id").AsInt32().ForeignKey().NotNullable().ForeignKey("Routes", "Id")
                 .WithColumn("TimeOfDeparture").AsDateTime().NotNullable()
@@ -39,11 +40,11 @@ namespace BusTicket.DomainModels.Migrations
 
         public override void Down()
         {
-            Delete.Table("Colors");
-            Delete.Table("CarModels");
-            Delete.Table("Cars");
-            Delete.Table("Routes");
-            Delete.Table("Vehicles");
+            Delete.Table(TableConstants.ColorsTableName);
+            Delete.Table(TableConstants.CarModelsTableName);
+            Delete.Table(TableConstants.CarsTableName);
+            Delete.Table(TableConstants.RoutesTableName);
+            Delete.Table(TableConstants.VehiclesTableName);
         }
     }
 }
