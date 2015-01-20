@@ -64,6 +64,7 @@
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Attributes\TableNameAttrbute.cs" />
+    <Compile Include="Repositories\Configurations\EntityConfiguration.cs" />
     <Compile Include="Repositories\Contract\IBaseRepository.cs" />
     <Compile Include="Repositories\Impl\BaseRepository.cs" />
   </ItemGroup>

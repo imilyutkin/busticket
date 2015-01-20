@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Reflection;
 using BusTicket.DomainModels.Models;
+using BusTicket.DomainModels.Repositories.Attributes;
+using BusTicket.DomainModels.Repositories.Configurations;
 using BusTicket.DomainModels.Repositories.Contract;
 using Dapper;
 
@@ -24,9 +28,13 @@ namespace BusTicket.DomainModels.Repositories.Impl
             }
         }
 
-
-
         public SqlConnection Connection
+        {
+            get;
+            set;
+        }
+
+        protected Dictionary<Type, EntityConfiguration> Configurations
         {
             get;
             set;
@@ -35,6 +43,14 @@ namespace BusTicket.DomainModels.Repositories.Impl
         protected BaseRepository()
         {
             Connection = new SqlConnection(connectionString);
+            if (!Configurations.ContainsKey(typeof(TEntity)))
+            {
+                var type = typeof (TEntity);
+                Configurations.Add(typeof(TEntity), new EntityConfiguration
+                {
+                    TableName = type.GetCustomAttribute<TableNameAttribute>().Name
+                });
+            }
         }
 
         public TEntity GetById(int id)
