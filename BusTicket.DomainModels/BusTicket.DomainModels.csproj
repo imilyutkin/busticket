@@ -65,8 +65,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Attributes\TableNameAttrbute.cs" />
     <Compile Include="Repositories\Configurations\EntityConfiguration.cs" />
+    <Compile Include="Repositories\Contract\CarRepository.cs" />
     <Compile Include="Repositories\Contract\IBaseRepository.cs" />
+    <Compile Include="Repositories\Contract\ICarModelRepository.cs" />
+    <Compile Include="Repositories\Contract\IColorRepository.cs" />
+    <Compile Include="Repositories\Contract\RouteRepository.cs" />
+    <Compile Include="Repositories\Contract\VehicleRepository.cs" />
     <Compile Include="Repositories\Impl\BaseRepository.cs" />
+    <Compile Include="Repositories\Impl\CarModelRepository.cs" />
+    <Compile Include="Repositories\Impl\ColorRepository.cs" />
+    <Compile Include="Repositories\Impl\ICarRepository.cs" />
+    <Compile Include="Repositories\Impl\IRouteRepository.cs" />
+    <Compile Include="Repositories\Impl\IVehicleRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
